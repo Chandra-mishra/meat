@@ -1,0 +1,54 @@
+language: node_js
+
+sudo: false
+dist: trusty
+
+git:
+    depth: 3
+
+node_js:
+    - '10'
+
+cache:
+    directories:
+        - node_modules
+        - backend/api/node_modules
+        - admin/website-angular/node_modules
+        - carrier/mobile-ionic/node_modules
+        - shop/mobile-ionic/node_modules
+        - shop/website-angular/node_modules
+        - merchant/tablet-ionic/node_modules
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-4.8
+
+before_install:
+    - npm i -g npm@latest
+    - npm i -g yarn@latest
+    - npm i -g lerna@latest
+
+install:
+    - git clone -c core.symlinks=true --recursive --depth=3 --branch=$TRAVIS_BRANCH https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
+    - cd $TRAVIS_REPO_SLUG
+    - git checkout -qf $TRAVIS_COMMIT
+    - yarn install
+    - yarn bootstrap
+
+matrix:
+    include:
+        # - env: PROJECT=backend/api
+        # - env: PROJECT=admin/website-angular
+        # - env: PROJECT=carrier/mobile-ionic
+        # - env: PROJECT=shop/mobile-ionic
+        # - env: PROJECT=shop/website-angular
+        # - env: PROJECT=merchant/tablet-ionic
+
+before_script:
+    - cd $PROJECT
+
+script:
+    - yarn build

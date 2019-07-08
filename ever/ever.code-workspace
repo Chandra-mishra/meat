@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "admin"
+		},
+		{
+			"path": "backend"
+		},
+		{
+			"path": "carrier"
+		},
+		{
+			"path": "merchant"
+		},
+		{
+			"path": "shared"
+		},
+		{
+			"path": "shop"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "./node_modules/typescript/lib",
+		"debug.node.autoAttach": "on",
+		"search.usePCRE2": true,
+		"git.ignoreLimitWarning": true
+	}
+}

@@ -1,0 +1,11 @@
+{
+  "firebase": {
+    "apiKey": "AIzaSyD8ZcQCBEwUPi1ggoX0dtsEVhEKgb8hjw0",
+    "authDomain": "meatkart-11.firebaseapp.com",
+    "databaseURL": "https://meatkart-11.firebaseio.com",
+    "projectId": "meatkart-11",
+    "storageBucket": "XXXXXX.appspot.com",
+    "messagingSenderId": "452304244314"
+  },
+  "gtmKey" : "GTM-XXXXXXX"
+}
